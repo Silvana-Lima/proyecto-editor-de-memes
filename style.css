@@ -1,138 +1,314 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-:root{
-    --colorHeader: #98A8F8;
-    --colorBotonHover: #ccd9f9;
-    --colorBotonDownloadHover: #CDFCF6; 
-    --colorContainerMeme: #FAF7F0;
-    --colorHeaderDarkMode: #171010;
-    --colorPanelDarkMode: #2B2B2B
-    
+:root {
+  --colorHeader: #98a8f8;
+  --colorBotonHover: #ccd9f9;
+  --colorBotonDownloadHover: #cdfcf6;
+  --colorContainerMeme: #faf7f0;
+  --colorHeaderDarkMode: #171010;
+  --colorPanelDarkMode: #2b2b2b;
+  --border-radius: 0.3em;
 }
 
-body{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-image: url(./assets/fondo-memes.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-image: url(./assets/fondo-memes.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
 
 /* -----> HEADER <-----*/
 
-header{
-    background-color: var(--colorHeader);
-    text-align: center;
+header {
+  background-color: var(--colorHeader);
+  text-align: center;
+  height: 150px;
 }
 
-.title{
-    padding-top: 30px;
+.title {
+  padding-top: 30px;
 }
 
-ul{
-    display: flex;
-    justify-content: center;
-    list-style: none;
+ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
 }
 
-button{
-    margin: 20px 10px;
-    padding: 5px 15px;
-    border: none;
-    background-color: transparent;
+.btn-header {
+  margin: 20px 10px;
+  padding: 5px 15px;
+  border: none;
+  background-color: transparent;
 }
 
-button:hover{
-    background-color: var(--colorBotonHover);
-    border-radius: 5px;
-    color: var(--colorHeaderDarkMode);
+.btn-header:hover,
+.btn-download:hover {
+  background-color: var(--colorBotonHover);
+  border-radius: var(--border-radius);
+  color: var(--colorHeaderDarkMode);
 }
 
 /* -----> MAIN <-----*/
 
-main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+.section-meme {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 150px);
 }
 
-.container-meme{
-    background-color: var(--colorContainerMeme);
-    width: 600px;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
+.container-meme {
+  background-color: var(--colorContainerMeme);
+  width: 45%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
 }
 
-.top-text, .bottom-text{
-    padding: 20px;
+.top-text,
+.bottom-text {
+  padding: 20px;
 }
 
-.cont-img{
-    background-color: var(--colorHeader);
-    width: 100%;
-    height: 70%;
+.cont-img {
+  background-color: var(--colorHeader);
+  width: 100%;
+  height: 70%;
 }
 
-.btn-download{
-    border-radius: 5px;
-    background-color: var(--colorHeader);
+.btn-download {
+  border-radius: var(--border-radius);
+  background-color: var(--colorHeader);
+  margin: 20px 10px;
+  padding: 5px 15px;
+  border: 0;
+}
+
+/* -----> SECTION MODAL <-----*/
+
+.section-modal-img,
+.section-modal-text {
+  width: 280px;
+  height: 100vh;
+  background-color: var(--colorHeader);
+  /* opacity: 0.9; */
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.btn-close-img,
+.btn-close-text {
+  margin: 1em;
+  background-color: var(--colorBotonHover);
+  border: none;
+  font-size: 1em;
+  font-weight: bold;
+  width: 1em;
+  border-radius: var(--border-radius);
+}
+
+.title-modal {
+  text-align: center;
+  font-size: 1em;
+}
+
+.oculto {
+  display: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  font-size: 14px;
+}
+
+form * {
+  margin: 0.1em;
+}
+.label-url {
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+#url,
+.btn-reset,
+input,
+select {
+  border: 0;
+  background-color: var(--colorBotonHover);
+  outline: none;
+  border-radius: var(--border-radius);
+  height: 2.5em;
+}
+
+#url:hover,
+.btn-reset:hover,
+.cont-color:hover,
+#adjust:hover,
+input:hover,
+select:hover,
+.btn-aling:hover,
+.btn-outline:hover,
+.btn-close:hover {
+  background: var(--colorContainerMeme);
+}
+
+.cont-background {
+  display: flex;
+}
+
+.cont-color {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  background-color: var(--colorBotonHover);
+  border-radius: var(--border-radius);
+}
+
+#color,
+#background-text {
+  height: 1.5em;
+  width: 1.5em;
+}
+#adjust {
+  width: 50%;
+  background-color: var(--colorBotonHover);
+  border: none;
+  border-radius: var(--border-radius);
+}
+
+.label {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.filters {
+  font-size: 12px;
+}
+
+.cont-filters {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-reset-img {
+  width: 80%;
+  margin-top: 1.5em;
+}
+
+.btn-reset-text {
+  width: 80%;
+  margin-top: 1.5em;
+  margin-left: 1.4em;
+}
+
+.label-checkbox {
+  display: block;
+  padding-left: 15px;
+  text-indent: -15px;
+}
+
+.input-checkbox {
+  width: 13px;
+  height: 13px;
+  padding: 0;
+  margin: 0;
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+  *overflow: hidden;
+}
+
+.cont-font-size-text-aling {
+  display: flex;
+}
+
+#input-font-size {
+  width: 50%;
+}
+
+.cont-btns-text-aling {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-aling,
+.btn-outline {
+  width: 30%;
+  height: 2.3em;
+  border: 0;
+  border-radius: var(--border-radius);
+  background-color: var(--colorBotonHover);
+}
+
+.cont-background-text {
+  display: flex;
+  height: 2.5em;
 }
 
 /* -----> MODO OSCURO <-----*/
 
-.darkMode{
-background-color: var(--colorHeaderDarkMode);
-color: var(--colorContainerMeme);
+.darkMode {
+  background-color: var(--colorHeaderDarkMode);
+  color: var(--colorContainerMeme);
 }
 
-.darkModeBody{
-    background-image: url(./assets/fondo-memes-oscuro.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+.darkModeBody {
+  background-image: url(./assets/fondo-memes-oscuro.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* -----> RESPONSIVE <-----*/
 
 /* -----> RESPONSIVE TABLET<-----*/
 
-@media (max-width: 700px){
+@media (max-width: 780px) {
+  .title {
+    font-size: 28px;
+  }
 
-    .title{
-        font-size: 28px;
-    }
+  .container-meme {
+    width: 60%;
+    height: 400px;
+  }
 
-
-    .container-meme{
-          width: 90%;
-          height: 400px;
-    }
-
-    .top-text, .bottom-text{
-        font-size: 20px;
-    }
+  .top-text,
+  .bottom-text {
+    font-size: 20px;
+  }
 }
-
 
 /* -----> RESPONSIVE MOVIL<-----*/
 
-@media (max-width: 480px){
-    .title{
-        font-size: 20px;
-    }
+@media (max-width: 480px) {
+  .title {
+    font-size: 20px;
+  }
 
-    button{
-        font-size: 14px;
-        margin: 10 px5px;
-        padding: 5px;
-    }
+  .container-meme {
+    width: 90%;
+  }
+
+  button {
+    font-size: 14px;
+    margin: 10 px5px;
+    padding: 5px;
+  }
 }
