@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- google font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat&family=Dancing+Script&family=Pacifico&family=Roboto+Mono&display=swap" rel="stylesheet">
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -62,8 +71,13 @@
           <legend class="tittle-background label">FONDO</legend>
           <div class="cont-background">
             <div class="cont-color">
-              <input type="color" name="color" id="color" value="#000000" />
-              <span>#000000</span>
+              <input
+                type="color"
+                name="color"
+                id="color-background-meme"
+                value="#98a8f8"
+              />
+              <span class="span-color-img">#98a8f8</span>
             </div>
             <select name="adjust" id="adjust">
               <option value="ninguno">Ninguno</option>
@@ -78,26 +92,30 @@
           <legend class="tittle-filters label">FILTROS</legend>
           <div class="cont-filters">
             <label class="filters" for="brillo">BRILLO</label>
-            <input type="range" min="0" max="100" />
-            <label class="filters" for="brillo">OPACIDAD</label>
-            <input type="range" min="0" max="100" />
-            <label class="filters" for="brillo">CONTRASTE</label>
-            <input type="range" min="0" max="100" />
-            <label class="filters" for="brillo">DESENFOQUE</label>
-            <input type="range" min="0" max="100" />
-            <label class="filters" for="brillo">ESCALA DE GRISES</label>
-            <input type="range" min="0" max="100" />
-            <label class="filters" for="brillo">SEPIA</label>
-            <input type="range" min="0" max="100" />
-            <label class="filters" for="brillo">HUE</label>
-            <input type="range" min="0" max="100" />
-            <label class="filters" for="brillo">SATURADO</label>
-            <input type="range" min="0" max="100" />
-            <label class="filters" for="brillo">NEGATIVO</label>
-            <input type="range" min="0" max="100" />
+            <input type="range" class="input-brillo" min="0" max="1" step="0.1" value="1" />
+            <label class="filters" for="opacidad">OPACIDAD</label>
+            <input type="range" class="input-opacidad" min="0" max="1" step="0.1" value="1" />
+            <label class="filters" for="contraste">CONTRASTE</label>
+            <input type="range" class="input-contraste" min="100" max="1000" step="100" value="100"/>
+            <label class="filters" for="desenfoque">DESENFOQUE</label>
+            <input type="range" class="input-desenfoque" min="0" max="10" value="0" />
+            <label class="filters" for="escala-de-grises">ESCALA DE GRISES</label>
+            <input type="range" class="input-grises" min="0" max="100" value="0" />
+            <label class="filters" for="sepia">SEPIA</label>
+            <input type="range" class="input-sepia" min="0" max="100" value="0"/>
+            <label class="filters" for="hue">HUE</label>
+            <input type="range"class="input-hue" min="0" max="360" value="0" />
+            <label class="filters" for="saturado">SATURADO</label>
+            <input type="range" class="input-saturado" min="0" max="200" value="100" />
+            <label class="filters" for="negativo">NEGATIVO</label>
+            <input type="range" class="input-negativo" min="0" max="100" value="0"/>
           </div>
 
-          <input type="submit" value="Reestablecer filtros" class="btn-reset-img" />
+          <input
+            type="submit"
+            value="Reestablecer filtros"
+            class="btn-reset-img"
+          />
         </form>
       </section>
       <section class="section-modal-text oculto">
@@ -112,29 +130,28 @@
           <input
             type="text"
             name="txt-start"
-            id="txt-start"
-            value="Texto superior"
+            id="input-txt-top"
+            value=""
           />
           <label for="" class="label-checkbox"
-            ><input type="checkbox" class="input-checkbox" name="" id="" /> Sin
+            ><input type="checkbox" class="input-checkbox" name="" id="top-text-none"/> Sin
             texto superior</label
           >
 
-          <label for="txt-end" class="txt-end label">INFERIOR</label>
-          <input type="text" name="txt-end" id="txt-end" />
+          <label for="label-txt-bottom" class="txt-end label">INFERIOR</label>
+          <input type="text" name="input-txt-bottom" id="input-txt-bottom" />
           <label for="" class="label-checkbox"
-            ><input type="checkbox" class="input-checkbox" name="" id="" /> Sin
+            ><input type="checkbox" class="input-checkbox" name="" id="bottom-text-none" /> Sin
             texto inferior</label
           >
 
           <legend class="tittle-font label">FUENTE</legend>
           <select name="fonts" id="fonts">
-            <option value="impact">Impact</option>
-            <option value="arial">Arial</option>
-            <option value="arial-black">Arial Black</option>
-            <option value="american">American Typewriter</option>
-            <option value="andale-mono">Andale mono</option>
-            <option value="comic-sans">Comic Sans MS</option>
+            <option value="arial"c>Arial</option>
+            <option value="roboto-mono">Roboto Mono</option>
+            <option value="dancing-script" >Dancing Script</option>
+            <option value="pacifico">Pacifico</option>
+            <option value="caveat">Caveat</option>
             <option value="helvetica">Helvética</option>
             <option value="impact">Impact</option>
             <option value="verdana">Verdana</option>
@@ -147,46 +164,53 @@
               aria-label="font-size"
               id="input-font-size"
               min="10"
-              value="40"
+              max="40"
+              value="20"
             />
             <div class="cont-btns-text-aling">
-              <button class="btn-aling left">
+              <button class="btn-aling aling-left">
                 <i class="fa-solid fa-align-left"></i>
               </button>
-              <button class="btn-aling center">
+              <button class="btn-aling aling-center">
                 <i class="fa-solid fa-align-center"></i>
               </button>
-              <button class="btn-aling rigth">
+              <button class="btn-aling aling-rigth">
                 <i class="fa-solid fa-align-right"></i>
               </button>
             </div>
           </div>
 
-          <div class="cont-background-text">
-            <div class="cont-color">
-              <input type="color" name="color" id="color" value="#FFFFFF" />
-              <span>#FFFFFF"</span>
+          <div class="cont-color-text-background">
+            <div class="cont-color-text">
+              <label for="color">COLOR</label>
+              <div class="cont-input-color">
+                <input type="color" name="color" id="input-color-text" value="#000000" />
+                <span class="span-color-text">#000000"</span>
+              </div>
             </div>
-            <div class="cont-color">
-              <input
-                type="color"
-                name="background-text"
-                id="background-text"
-                value="#FFFFFF"
-              />
-              <span>#FFFFFF"</span>
+            <div class="cont-background-text">
+              <label for="color">FONDO</label>
+              <div class="cont-input-background-color">
+                <input
+                  type="color"
+                  name="background-text"
+                  id="input-background-text"
+                  value="#FFFFFF"
+                />
+                <span class="span-color-background-text">#FFFFFF"</span>
+              </div>
             </div>
           </div>
           <label for="" class="label-checkbox"
-            ><input type="checkbox" class="input-checkbox" name="" id="" />
+            ><input type="checkbox" class="input-checkbox" name="" id="fondo-transparente" />
             Fondo transparente</label
           >
 
           <legend class="tittle-outline label">CONTORNO</legend>
           <div class="cont-btns-outline">
-            <button class="btn-outline none">Ninguno</button>
-            <button class="btn-outline ligth">Claro</button>
-            <button class="btn-outline dark">Oscuro</button>
+            <button class="btn-outline btn-outline-none">Ninguno</button>
+            <button class="btn-outline btn-outline-ligth">Claro</button>
+            <button class="btn-outline btn-outline-dark">Oscuro</button>
           </div>
 
           <label for="spacing label">ESPACIADO</label>
@@ -203,7 +227,11 @@
           </select>
         </form>
 
-        <input type="submit" value="Reestablecer filtros" class="btn-reset-text" />
+        <input
+          type="submit"
+          value="Reestablecer filtros"
+          class="btn-reset-text"
+        />
       </section>
     </main>
 

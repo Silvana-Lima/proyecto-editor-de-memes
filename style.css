@@ -70,20 +70,44 @@ ul {
   height: 500px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
   margin-top: 30px;
+  /* text-align: end; */
 }
+
+.fondoTransparente{
+  background-color: transparent;
+}
+
+.contornoOscuroTexto{
+  -webkit-text-stroke: 1.5px black;
+}
+
+.contornoClaroTexto{
+  -webkit-text-stroke: 1.5px white;
+}
+
 
 .top-text,
 .bottom-text {
+  /* width: 100%; */
+  height: 100px;
   padding: 20px;
+  /* display: flex; */
+text-align: left;
+  /* align-items: center; */
+  /* justify-content: center; */
+
 }
 
 .cont-img {
   background-color: var(--colorHeader);
+  /* background-image: url(https://cdn.pixabay.com/photo/2015/11/17/13/13/puppy-1047521_1280.jpg); */
   width: 100%;
-  height: 70%;
+  height: 500px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .btn-download {
@@ -101,7 +125,7 @@ ul {
   width: 280px;
   height: 100vh;
   background-color: var(--colorHeader);
-  /* opacity: 0.9; */
+  opacity: 0.9;
   overflow: auto;
   position: fixed;
   top: 0;
@@ -143,8 +167,16 @@ form * {
   font-weight: bold;
 }
 
-#url,
-.btn-reset,
+.label {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    font-size: 13px;
+  }
+  
+
+/* #url,
+.btn-reset, */
 input,
 select {
   border: 0;
@@ -166,37 +198,44 @@ select:hover,
   background: var(--colorContainerMeme);
 }
 
-.cont-background {
+.cont-background{
   display: flex;
 }
 
-.cont-color {
+.cont-color{
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 50%;
   background-color: var(--colorBotonHover);
   border-radius: var(--border-radius);
 }
 
-#color,
-#background-text {
-  height: 1.5em;
-  width: 1.5em;
-}
+/* cambio de formato de input color a redondeado*/
+
+input[type="color"] {
+    border: none;
+    background-color: transparent;
+    width: 15px;
+    height: 15px;
+  }
+  input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+  }
+
+
+  /* ------- */
+
 #adjust {
   width: 50%;
   background-color: var(--colorBotonHover);
   border: none;
   border-radius: var(--border-radius);
 }
-
-.label {
-  margin-top: 1em;
-  margin-bottom: 0.5em;
-  font-weight: bold;
-  font-size: 13px;
-}
-
 .filters {
   font-size: 12px;
 }
@@ -208,13 +247,7 @@ select:hover,
 
 .btn-reset-img {
   width: 80%;
-  margin-top: 1.5em;
-}
-
-.btn-reset-text {
-  width: 80%;
-  margin-top: 1.5em;
-  margin-left: 1.4em;
+  margin: 1.5em auto;
 }
 
 .label-checkbox {
@@ -257,10 +290,37 @@ select:hover,
   background-color: var(--colorBotonHover);
 }
 
-.cont-background-text {
+.cont-background-text{
   display: flex;
   height: 2.5em;
 }
+
+
+/*---*/
+
+.cont-color-text-background{
+    display: flex;
+}
+
+.cont-color-text, .cont-background-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.cont-input-color, .cont-input-background-color{
+    display: flex;
+    align-items: center;
+    background-color: var(--colorBotonHover);
+    border-radius: var(--border-radius);
+    width: 100%;
+    padding: 6px;
+
+}
+
+.btn-reset-text {
+    width: 80%;
+    margin: 1.5em;
+  }
 
 /* -----> MODO OSCURO <-----*/
 
@@ -273,6 +333,10 @@ select:hover,
   background-image: url(./assets/fondo-memes-oscuro.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.darkModeSpan{
+    color: var(--colorHeaderDarkMode);
 }
 
 /* -----> RESPONSIVE <-----*/
