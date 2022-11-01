@@ -53,6 +53,8 @@ ul {
   color: var(--colorHeaderDarkMode);
 }
 
+
+
 /* -----> MAIN <-----*/
 
 .section-meme {
@@ -64,45 +66,27 @@ ul {
   min-height: calc(100vh - 150px);
 }
 
-.container-meme {
+#container-meme {
   background-color: var(--colorContainerMeme);
-  width: 45%;
+  width: 500px;
   height: 500px;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   margin-top: 30px;
-  /* text-align: end; */
+  font-size: 30px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-
-.fondoTransparente{
-  background-color: transparent;
-}
-
-.contornoOscuroTexto{
-  -webkit-text-stroke: 1.5px black;
-}
-
-.contornoClaroTexto{
-  -webkit-text-stroke: 1.5px white;
-}
-
 
 .top-text,
 .bottom-text {
-  /* width: 100%; */
-  height: 100px;
   padding: 20px;
-  /* display: flex; */
-text-align: left;
-  /* align-items: center; */
-  /* justify-content: center; */
+  text-align: center;
+  word-wrap: break-word;
 
 }
 
 .cont-img {
   background-color: var(--colorHeader);
-  /* background-image: url(https://cdn.pixabay.com/photo/2015/11/17/13/13/puppy-1047521_1280.jpg); */
   width: 100%;
   height: 500px;
   background-size: cover;
@@ -114,7 +98,7 @@ text-align: left;
   border-radius: var(--border-radius);
   background-color: var(--colorHeader);
   margin: 20px 10px;
-  padding: 5px 15px;
+  padding: 10px 15px;
   border: 0;
 }
 
@@ -125,7 +109,6 @@ text-align: left;
   width: 280px;
   height: 100vh;
   background-color: var(--colorHeader);
-  opacity: 0.9;
   overflow: auto;
   position: fixed;
   top: 0;
@@ -136,20 +119,22 @@ text-align: left;
 .btn-close-text {
   margin: 1em;
   background-color: var(--colorBotonHover);
-  border: none;
   font-size: 1em;
   font-weight: bold;
   width: 1em;
+  height: 1em;
+  padding: 5px;
   border-radius: var(--border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
 }
 
 .title-modal {
+  margin-top: 20px;
   text-align: center;
   font-size: 1em;
-}
-
-.oculto {
-  display: none;
 }
 
 form {
@@ -162,6 +147,7 @@ form {
 form * {
   margin: 0.1em;
 }
+
 .label-url {
   margin-bottom: 0.5em;
   font-weight: bold;
@@ -174,16 +160,17 @@ form * {
     font-size: 13px;
   }
   
-
-/* #url,
-.btn-reset, */
 input,
-select {
+select, textarea {
   border: 0;
   background-color: var(--colorBotonHover);
   outline: none;
   border-radius: var(--border-radius);
   height: 2.5em;
+}
+
+#url, #input-txt-top, #input-txt-bottom, #fonts, #input-font-size, .espaciado, #line-spacing{
+  padding: 5px 10px;
 }
 
 #url:hover,
@@ -194,7 +181,7 @@ input:hover,
 select:hover,
 .btn-aling:hover,
 .btn-outline:hover,
-.btn-close:hover {
+.btn-close:hover, textarea:hover, .btn-close-img:hover,.btn-close-text:hover {
   background: var(--colorContainerMeme);
 }
 
@@ -206,18 +193,20 @@ select:hover,
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  width: 60%;
   background-color: var(--colorBotonHover);
   border-radius: var(--border-radius);
+  margin-right: 5px;
 }
+
 
 /* cambio de formato de input color a redondeado*/
 
 input[type="color"] {
     border: none;
     background-color: transparent;
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
   }
   input[type="color"]::-webkit-color-swatch-wrapper {
     padding: 0;
@@ -227,11 +216,9 @@ input[type="color"] {
     border-radius: 50%;
   }
 
-
-  /* ------- */
+ /* fin de cambio de formato de input color a redondeado */
 
 #adjust {
-  width: 50%;
   background-color: var(--colorBotonHover);
   border: none;
   border-radius: var(--border-radius);
@@ -295,9 +282,6 @@ input[type="color"] {
   height: 2.5em;
 }
 
-
-/*---*/
-
 .cont-color-text-background{
     display: flex;
 }
@@ -317,12 +301,26 @@ input[type="color"] {
 
 }
 
-.btn-reset-text {
-    width: 80%;
-    margin: 1.5em;
-  }
+/* -----> Estilos para utilizar con Javascript <-----*/
 
-/* -----> MODO OSCURO <-----*/
+.oculto {
+  display: none;
+}
+
+.fondoTransparente{
+  background-color: transparent;
+}
+
+.contornoOscuroTexto{
+  -webkit-text-stroke: 1.5px black;
+}
+
+.contornoClaroTexto{
+  -webkit-text-stroke: 1.5px white;
+}
+
+
+/* -----> Modo oscuro <-----*/
 
 .darkMode {
   background-color: var(--colorHeaderDarkMode);
@@ -348,7 +346,7 @@ input[type="color"] {
     font-size: 28px;
   }
 
-  .container-meme {
+  #container-meme {
     width: 60%;
     height: 400px;
   }
@@ -366,7 +364,7 @@ input[type="color"] {
     font-size: 20px;
   }
 
-  .container-meme {
+  #container-meme {
     width: 90%;
   }
 

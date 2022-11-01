@@ -4,15 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <meta name="description" content="Editor de memes">
+    <meta name="author" content="Silvana Lima">
 
     <!-- google font -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat&family=Dancing+Script&family=Pacifico&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Dancing+Script&family=Pacifico&family=Roboto+Mono&display=swap" rel="stylesheet">
 
+    <!-- Iconos Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -20,7 +21,47 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="./style.css" />
+
+    <!-- Social Tags -->
+ 
+      <meta property="og:url" content="https://silvana-lima.github.io/proyecto-editor-de-memes/" />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="Generador de Memes" />
+      <meta property="og:image" content="aca va la url de la imagen"/>   
+  
+      <meta
+        property="og:image"
+        name="twitter:image"
+        content="aca va la url de la imagen" 
+      />
+      <link rel="apple-touch-icon" href="aca va la url de la imagen" />
+      <link rel="apple-touch-icon" href="aca va la url de la imagen" />
+      <meta
+        property="og:description"
+        name="twitter:description"
+        content="Proyecto editor de memes"
+      />
+      <meta name="theme-color" content="#98a8f8" />
+      <meta name="twitter:card" content="summary" />
+      <meta property="og:image:alt" content="Logo de Editor de memes" />
+      <meta
+        property="og:description"
+        content="Proyecto editor de memes de Silvana Lima"
+      />
+      <meta
+        property="og:site_name"
+        content="Proyecto editor de memes de Silvana Lima"
+      />
+      <meta property="og:locale" content="AR-S" />
+    
+    <!-- Hoja de estilos -->
+
+      <link rel="stylesheet" href="./style.css" />
+      
+    <!-- Boton descargar -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
     <title>Editor de memes</title>
   </head>
   <body>
@@ -48,10 +89,10 @@
     </header>
     <main>
       <section class="section-meme">
-        <div class="container-meme">
-          <h2 class="top-text">TOP TEXT</h2>
-          <div class="cont-img"><img src="" alt="" class="img-choise" /></div>
-          <h2 class="bottom-text">BOTTOM TEXT</h2>
+        <div id="container-meme">
+          <p class="top-text">TOP TEXT</p>
+          <div class="cont-img"></div>
+          <p class="bottom-text">BOTTOM TEXT</p>
         </div>
 
         <button class="btn-download">
@@ -66,7 +107,7 @@
 
         <form action="">
           <label for="url" class="label-url label">URL</label>
-          <input type="url" id="url" name="url" />
+          <input type="url" id="url" name="url" placeholder="Ingresa una imagen de uso libre"/>
 
           <legend class="tittle-background label">FONDO</legend>
           <div class="cont-background">
@@ -79,7 +120,7 @@
               />
               <span class="span-color-img">#98a8f8</span>
             </div>
-            <select name="adjust" id="adjust">
+            <select name="adjust" id="adjust-background">
               <option value="ninguno">Ninguno</option>
               <option value="aclarar">Aclarar</option>
               <option value="oscurecer">Oscurecer</option>
@@ -127,19 +168,21 @@
           <label for="txt-start subtitle" class="txt-start label"
             >SUPERIOR</label
           >
-          <input
+          <!-- <input
             type="text"
             name="txt-start"
             id="input-txt-top"
             value=""
-          />
+          /> -->
+          <textarea name="" id="input-txt-top" cols="10" rows="2"></textarea>
           <label for="" class="label-checkbox"
             ><input type="checkbox" class="input-checkbox" name="" id="top-text-none"/> Sin
             texto superior</label
           >
 
           <label for="label-txt-bottom" class="txt-end label">INFERIOR</label>
-          <input type="text" name="input-txt-bottom" id="input-txt-bottom" />
+          <!-- <input type="text" name="input-txt-bottom" id="input-txt-bottom" /> -->
+          <textarea name="" id="input-txt-bottom" cols="10" rows="2"></textarea>
           <label for="" class="label-checkbox"
             ><input type="checkbox" class="input-checkbox" name="" id="bottom-text-none" /> Sin
             texto inferior</label
@@ -147,13 +190,13 @@
 
           <legend class="tittle-font label">FUENTE</legend>
           <select name="fonts" id="fonts">
-            <option value="arial"c>Arial</option>
+            <option value="impact" selected>Impact</option>
+            <option value="arial">Arial</option>
             <option value="roboto-mono">Roboto Mono</option>
             <option value="dancing-script" >Dancing Script</option>
             <option value="pacifico">Pacifico</option>
             <option value="caveat">Caveat</option>
             <option value="helvetica">Helvética</option>
-            <option value="impact">Impact</option>
             <option value="verdana">Verdana</option>
             <option value="times-new-roman">Times New Roman</option>
           </select>
@@ -165,7 +208,7 @@
               id="input-font-size"
               min="10"
               max="40"
-              value="20"
+              value="30"
             />
             <div class="cont-btns-text-aling">
               <button class="btn-aling aling-left">
@@ -214,24 +257,19 @@
           </div>
 
           <label for="spacing label">ESPACIADO</label>
-          <input type="number" />
+          <input type="number" min="10" max="50" value="20" class="espaciado"/>
 
           <legend class="line-spacing label">INTERLINEADO</legend>
           <select name="line-spacing" id="line-spacing">
-            <option value="">0.8</option>
-            <option value="">1</option>
-            <option value="">1.2</option>
-            <option value="">1.5</option>
-            <option value="">2</option>
-            <option value="">2.5</option>
+            <option value="0.8">0.8</option>
+            <option value selected="1">1</option>
+            <option value="1.2">1.2</option>
+            <option value="1.5">1.5</option>
+            <option value="2">2</option>
+            <option value="2.5">2.5</option>
           </select>
         </form>
 
-        <input
-          type="submit"
-          value="Reestablecer filtros"
-          class="btn-reset-text"
-        />
       </section>
     </main>
 

@@ -9,11 +9,11 @@ let header = $("header");
 let btnImg = $(".btn-img");
 let btnText = $(".btn-text");
 let btnTheme = $(".btn-theme");
-let contMeme = $(".container-meme");
+let contMeme = $("#container-meme");
 let contImg = $(".cont-img");
 let topText = $(".top-text");
 let bottomText = $(".bottom-text");
-let btndwonload = $(".btn-download");
+let btnDownload = $(".btn-download");
 
 // ------> Variables Modal imagen
 let modalImg = $(".section-modal-img");
@@ -21,6 +21,7 @@ let btnCloseModalImg = $(".btn-close-img");
 let url = $("#url");
 let spanColorImg = $(".span-color-img");
 let colorFondoMeme = $("#color-background-meme");
+let filtrosfondoImg = $('#adjust-background');
 let inputBrillo = $(".input-brillo");
 let inputOpacidad = $(".input-opacidad");
 let inputContraste = $(".input-contraste");
@@ -46,15 +47,15 @@ let opcionesFuente = $('#fonts');
 let tamanioDeFuente = $('#input-font-size');
 let alinearTextoIzquierda = $('.aling-left');
 let alinearTextoCentro = $('.aling-center');
-let alinearTextoDerecha = $('.aling-right');
+let alinearTextoDerecha = $('.aling-rigth');
 let colorTextoMeme = $('#input-color-text');
 let colorFondoTextoMeme = $('#input-background-text');
 let fondoTransparente = $('#fondo-transparente');
 let sinContorno = $('.btn-outline-none');
 let contornoClaro = $('.btn-outline-ligth');
 let contornoOscuro = $('.btn-outline-dark');
-
-
+let espaciado = $('.espaciado');
+let interlineado = $('#line-spacing');
 
 // ------> FUNCIONES
 
@@ -99,6 +100,13 @@ let cambiarColor = ()=>{
   contMeme.style.color = colorDeTextoMeme;
   }
 
+let descargarMeme = ()=>{
+  domtoimage.toBlob(contMeme)
+    .then(function (blob) {
+        saveAs(blob, 'my-meme.png');
+    });
+};
+
 // ------> EVENTOS
 
 // ------> Modo Oscuro
@@ -110,7 +118,7 @@ btnTheme.addEventListener("click", () => {
   btnText.classList.toggle("darkMode");
   btnImg.classList.toggle("darkMode");
   btnTheme.classList.toggle("darkMode");
-  btndwonload.classList.toggle("darkMode");
+  btnDownload.classList.toggle("darkMode");
   modalImg.classList.toggle("darkMode");
   modalText.classList.toggle("darkMode");
   spanColorImg.classList.toggle("darkModeSpan");
@@ -139,6 +147,32 @@ url.addEventListener("change", (event) => {
   contImg.style.backgroundImage = `url(${urlImagen})`;
 });
 
+// ------> Cambiar color de fondo meme
+
+colorFondoMeme.addEventListener('input', cambiarColor)
+colorFondoTextoMeme.addEventListener('input', cambiarColor)
+colorTextoMeme.addEventListener('input', cambiarColor)
+
+// ------> Cambiar mezcla de fondo meme
+
+filtrosfondoImg.addEventListener('change', (event)=>{
+  let ajustarFondo = event.target.value;
+  console.log(ajustarFondo)
+if (ajustarFondo === 'ninguno'){
+  contImg.style.backgroundBlendMode = 'unset'
+} else if (ajustarFondo === 'aclarar'){
+  contImg.style.backgroundBlendMode = 'lighten'
+} else if (ajustarFondo === 'oscurecer'){
+  contImg.style.backgroundBlendMode = 'darken'
+} else if (ajustarFondo === 'diferencia'){
+  contImg.style.backgroundBlendMode = 'difference'
+} else if (ajustarFondo === 'luminosidad'){
+  contImg.style.backgroundBlendMode = 'luminosity'
+} else if (ajustarFondo === 'multiplicar'){
+  contImg.style.backgroundBlendMode = 'multiply'
+}
+
+})
 
 // ------> Cambiar filtros de imagen
 
@@ -156,11 +190,6 @@ inputNegativo.addEventListener("change", ingresarFiltros);
 
 resetearFiltrosImg.addEventListener("click", restablecerFiltros);
 
-// ------> Cambiar color de fondo meme
-
-colorFondoMeme.addEventListener('input', cambiarColor)
-colorFondoTextoMeme.addEventListener('input', cambiarColor)
-colorTextoMeme.addEventListener('input', cambiarColor)
 
 // ------> Abrir modal texto
 
@@ -175,24 +204,17 @@ btnCloseModalText.addEventListener("click", () => {
   modalText.classList.add("oculto");
 });
 
-// ------> Descargar meme❌
-// let descargarMeme = () => {
-//   domtoimage.toBlob(contMeme).then(function (blob) {
-//     saveAs(blob, "mi-meme");
-//   });
-// };
-
-//btndwonload.addEventListener("click", descargarMeme);
-
 // ------> Agregar texto en meme
 
 inputTextTop.addEventListener("input", (event) => {
+  event.preventDefault();
   let textInput = event.target.value;
 
   topText.innerText = textInput;
 });
 
 inputTextBottom.addEventListener("input", (event) => {
+  event.preventDefault();
   let textInput = event.target.value;
 
   bottomText.innerText = textInput;
@@ -200,13 +222,13 @@ inputTextBottom.addEventListener("input", (event) => {
 
 // ------> Suprimir texto en meme
 
-inputSinTextoSuperior.addEventListener("click", (event) => {
-  // console.log(event.target.value)
+inputSinTextoSuperior.addEventListener("click", () => {
+
   topText.classList.toggle("oculto");
 
 });
 
-inputSinTextoInferior.addEventListener("click", (event) => {
+inputSinTextoInferior.addEventListener("click", () => {
   bottomText.classList.toggle("oculto");
 });
 
@@ -246,24 +268,26 @@ tamanioDeFuente.addEventListener('input', (event)=>{
   contMeme.style.fontSize = `${tamanioElegido}px`;
 })
 
-// ------> Alinear texto❌
+// ------> Alinear texto
 
-// let alinearTexto = ()=>{
-// let centro = alinearTextoCentro.value
-// let izquierda = alinearTextoIzquierda.value
-// console.log(izquierda)
+alinearTextoIzquierda.addEventListener('click', (event)=>{
+  event.preventDefault();
+  topText.style.textAlign = 'left';
+  bottomText.style.textAlign = 'left';
+})
 
+alinearTextoCentro.addEventListener('click', (event)=>{
+  event.preventDefault();
+  topText.style.textAlign = 'center';
+  bottomText.style.textAlign = 'center';
+})
 
+alinearTextoDerecha.addEventListener('click', (event)=>{
+  event.preventDefault();
+  topText.style.textAlign = 'right';
+  bottomText.style.textAlign = 'right';
+})
 
-// }
-
-// alinearTextoIzquierda.addEventListener('click', (event)=>{
-//   console.log(event);
-//   event.preventDefault();
-  
-//   // contMeme.style.alignItems = 'left';
-//   topText.style.textAling = 'center';
-// })
 
 // ------> Fondo de texto transparente
 
@@ -297,3 +321,49 @@ contornoOscuro.addEventListener('click',  (event)=>{
  
  }) 
 
+// ------> Espaciado Texto
+
+espaciado.addEventListener('input', (event)=>{
+  let espaciadoElegido = Number(event.target.value);
+
+  topText.style.padding = `${espaciadoElegido}px`;
+  bottomText.style.padding = `${espaciadoElegido}px`;
+})
+
+// ------> Interlineado de Texto
+
+
+interlineado.addEventListener('change', (event)=>{
+  let interlineadoElegido = event.target.value;
+  console.log(interlineadoElegido)
+
+    if(interlineadoElegido === '0.8'){
+    topText.style.lineHeight = '0.8';
+    bottomText.style.lineHeight = '0.8';
+
+  } else if (interlineadoElegido === '1'){
+    topText.style.lineHeight= '1';
+    bottomText.style.lineHeight = '1';
+  
+  } else if (interlineadoElegido === '1.2'){
+    topText.style.lineHeight= '1.2';
+    bottomText.style.lineHeight = '1.2';
+  
+  } else if (interlineadoElegido === '1.5'){
+    topText.style.lineHeight= '1.5';
+    bottomText.style.lineHeight = '1.5';
+  
+  } else if (interlineadoElegido === '2'){
+    topText.style.lineHeight= '2';
+    bottomText.style.lineHeight = '2';
+  
+  } else if (interlineadoElegido === '2.5'){
+    topText.style.lineHeight= '2.5';
+    bottomText.style.lineHeight = '2.5';
+  
+  } 
+})
+
+  // ------> Descargar meme
+
+  btnDownload.addEventListener("click", descargarMeme);
