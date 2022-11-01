@@ -312,11 +312,11 @@ input[type="color"] {
 }
 
 .contornoOscuroTexto{
-  -webkit-text-stroke: 1.5px black;
+  -webkit-text-stroke: 1px black;
 }
 
 .contornoClaroTexto{
-  -webkit-text-stroke: 1.5px white;
+  -webkit-text-stroke: 1px white;
 }
 
 

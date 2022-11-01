@@ -291,8 +291,10 @@ alinearTextoDerecha.addEventListener('click', (event)=>{
 
 // ------> Fondo de texto transparente
 
-fondoTransparente.addEventListener('click', ()=>{
+fondoTransparente.addEventListener('click', (event)=>{
+
 contMeme.classList.toggle("fondoTransparente");
+
 })
 
 

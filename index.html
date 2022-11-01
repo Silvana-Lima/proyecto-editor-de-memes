@@ -27,15 +27,15 @@
       <meta property="og:url" content="https://silvana-lima.github.io/proyecto-editor-de-memes/" />
       <meta property="og:type" content="website" />
       <meta property="og:title" content="Generador de Memes" />
-      <meta property="og:image" content="aca va la url de la imagen"/>   
+      <meta property="og:image" content="https://github.com/Silvana-Lima/proyecto-editor-de-memes/blob/master/assets/img-tag-con-panel.jpg?raw=true"/>   
   
       <meta
         property="og:image"
         name="twitter:image"
-        content="aca va la url de la imagen" 
+        content="https://github.com/Silvana-Lima/proyecto-editor-de-memes/blob/master/assets/img-tag-con-panel.jpg?raw=true" 
       />
-      <link rel="apple-touch-icon" href="aca va la url de la imagen" />
-      <link rel="apple-touch-icon" href="aca va la url de la imagen" />
+      <link rel="apple-touch-icon" href="https://github.com/Silvana-Lima/proyecto-editor-de-memes/blob/master/assets/img-tag-con-panel.jpg?raw=true" />
+      <link rel="apple-touch-icon" href="https://github.com/Silvana-Lima/proyecto-editor-de-memes/blob/master/assets/img-tag-con-panel.jpg?raw=true" />
       <meta
         property="og:description"
         name="twitter:description"
@@ -57,30 +57,33 @@
     <!-- Hoja de estilos -->
 
       <link rel="stylesheet" href="./style.css" />
-      
+
     <!-- Boton descargar -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+    <!-- Verificación de Google -->
+    <meta name="google-site-verification" content="AM3gerS9tzmoGJFPafvCLqA5xDmU-F22mTdpQ6VODmc" />
     
     <title>Editor de memes</title>
   </head>
   <body>
     <header>
-      <h1 class="title">Generador de Memes</h1>
+      <h1 class="title" tabindex="1">Generador de Memes</h1>
       <nav class="nav-header">
         <ul>
           <li>
-            <button class="btn-img btn-header">
+            <button class="btn-img btn-header" tabindex="2" aria-label="Carga y edita tu imagen">
               <i class="fa-regular fa-image"></i> Imagen
             </button>
           </li>
           <li>
-            <button class="btn-text btn-header">
+            <button class="btn-text btn-header" tabindex="3" aria-label="Ingresa texto y modifica su estilo">
               <i class="fa-solid fa-font"></i> Texto
             </button>
           </li>
           <li>
-            <button class="btn-theme btn-header">
+            <button class="btn-theme btn-header" tabindex="4">
               <i class="fa-regular fa-lightbulb"></i> Modo oscuro
             </button>
           </li>
@@ -89,13 +92,13 @@
     </header>
     <main>
       <section class="section-meme">
-        <div id="container-meme">
+        <div id="container-meme" tabindex="5" aria-label="Contenedor de Meme">
           <p class="top-text">TOP TEXT</p>
           <div class="cont-img"></div>
           <p class="bottom-text">BOTTOM TEXT</p>
         </div>
 
-        <button class="btn-download">
+        <button class="btn-download" tabindex="6" aria-label="Descarga tu meme">
           <i class="fa-solid fa-download"></i> Descargar meme
         </button>
       </section>
@@ -112,15 +115,11 @@
           <legend class="tittle-background label">FONDO</legend>
           <div class="cont-background">
             <div class="cont-color">
-              <input
-                type="color"
-                name="color"
-                id="color-background-meme"
-                value="#98a8f8"
+              <input type="color" name="color" id="color-background-meme" value="#98a8f8" aria-label="Color de fondo de imagen"
               />
               <span class="span-color-img">#98a8f8</span>
             </div>
-            <select name="adjust" id="adjust-background">
+            <select name="adjust" id="adjust-background" aria-label="Modo de mexcla de fondo de imagen">
               <option value="ninguno">Ninguno</option>
               <option value="aclarar">Aclarar</option>
               <option value="oscurecer">Oscurecer</option>
@@ -130,26 +129,26 @@
             </select>
           </div>
 
-          <legend class="tittle-filters label">FILTROS</legend>
+          <legend class="tittle-filters label" aria-label="Filtros de imagen">FILTROS</legend>
           <div class="cont-filters">
             <label class="filters" for="brillo">BRILLO</label>
-            <input type="range" class="input-brillo" min="0" max="1" step="0.1" value="1" />
+            <input type="range" class="input-brillo" min="0" max="1" step="0.1" value="1" aria-label="brillo"/>
             <label class="filters" for="opacidad">OPACIDAD</label>
-            <input type="range" class="input-opacidad" min="0" max="1" step="0.1" value="1" />
+            <input type="range" class="input-opacidad" min="0" max="1" step="0.1" value="1" aria-label="opacidad" />
             <label class="filters" for="contraste">CONTRASTE</label>
-            <input type="range" class="input-contraste" min="100" max="1000" step="100" value="100"/>
+            <input type="range" class="input-contraste" min="100" max="1000" step="100" value="100" aria-label="contraste"/>
             <label class="filters" for="desenfoque">DESENFOQUE</label>
-            <input type="range" class="input-desenfoque" min="0" max="10" value="0" />
+            <input type="range" class="input-desenfoque" min="0" max="10" value="0" aria-label="desenfoque"/>
             <label class="filters" for="escala-de-grises">ESCALA DE GRISES</label>
-            <input type="range" class="input-grises" min="0" max="100" value="0" />
+            <input type="range" class="input-grises" min="0" max="100" value="0" aria-label="escala de grises"/>
             <label class="filters" for="sepia">SEPIA</label>
-            <input type="range" class="input-sepia" min="0" max="100" value="0"/>
+            <input type="range" class="input-sepia" min="0" max="100" value="0" aria-label="sepia"/>
             <label class="filters" for="hue">HUE</label>
-            <input type="range"class="input-hue" min="0" max="360" value="0" />
+            <input type="range"class="input-hue" min="0" max="360" value="0" aria-label="hue"/>
             <label class="filters" for="saturado">SATURADO</label>
-            <input type="range" class="input-saturado" min="0" max="200" value="100" />
+            <input type="range" class="input-saturado" min="0" max="200" value="100" aria-label="saturado"/>
             <label class="filters" for="negativo">NEGATIVO</label>
-            <input type="range" class="input-negativo" min="0" max="100" value="0"/>
+            <input type="range" class="input-negativo" min="0" max="100" value="0" aria-label="negativo"/>
           </div>
 
           <input
@@ -168,28 +167,24 @@
           <label for="txt-start subtitle" class="txt-start label"
             >SUPERIOR</label
           >
-          <!-- <input
-            type="text"
-            name="txt-start"
-            id="input-txt-top"
-            value=""
-          /> -->
-          <textarea name="" id="input-txt-top" cols="10" rows="2"></textarea>
+          <textarea name="" id="input-txt-top" cols="10" rows="2" aria-label="Ingresar texto superior"></textarea>
           <label for="" class="label-checkbox"
-            ><input type="checkbox" class="input-checkbox" name="" id="top-text-none"/> Sin
+            ><input type="checkbox" class="input-checkbox" name="" id="top-text-none" aria-label="Sin
+            texto superior"/> Sin
             texto superior</label
           >
 
           <label for="label-txt-bottom" class="txt-end label">INFERIOR</label>
-          <!-- <input type="text" name="input-txt-bottom" id="input-txt-bottom" /> -->
-          <textarea name="" id="input-txt-bottom" cols="10" rows="2"></textarea>
+  
+          <textarea name="" id="input-txt-bottom" cols="10" rows="2" aria-label="Ingresar texto inferior"></textarea>
           <label for="" class="label-checkbox"
-            ><input type="checkbox" class="input-checkbox" name="" id="bottom-text-none" /> Sin
+            ><input type="checkbox" class="input-checkbox" name="" id="bottom-text-none" aria-label="Sin
+            texto inferior" /> Sin
             texto inferior</label
           >
 
           <legend class="tittle-font label">FUENTE</legend>
-          <select name="fonts" id="fonts">
+          <select name="fonts" id="fonts" aria-label="Seleccionar familia de fuente">
             <option value="impact" selected>Impact</option>
             <option value="arial">Arial</option>
             <option value="roboto-mono">Roboto Mono</option>
@@ -201,23 +196,15 @@
             <option value="times-new-roman">Times New Roman</option>
           </select>
           <div class="cont-font-size-text-aling">
-            <input
-              type="number"
-              name="input-font-size"
-              aria-label="font-size"
-              id="input-font-size"
-              min="10"
-              max="40"
-              value="30"
-            />
+            <input type="number" name="input-font-size" aria-label="Seleccionar tamaño de fuente" id="input-font-size" min="10" max="40" value="30" />
             <div class="cont-btns-text-aling">
-              <button class="btn-aling aling-left">
+              <button class="btn-aling aling-left" aria-label="Alineacion de texto izquierda">
                 <i class="fa-solid fa-align-left"></i>
               </button>
-              <button class="btn-aling aling-center">
+              <button class="btn-aling aling-center" aria-label="Alineacion de texto centro">
                 <i class="fa-solid fa-align-center"></i>
               </button>
-              <button class="btn-aling aling-rigth">
+              <button class="btn-aling aling-rigth" aria-label="alineacion de texto derecha">
                 <i class="fa-solid fa-align-right"></i>
               </button>
             </div>
@@ -227,40 +214,35 @@
             <div class="cont-color-text">
               <label for="color">COLOR</label>
               <div class="cont-input-color">
-                <input type="color" name="color" id="input-color-text" value="#000000" />
+                <input type="color" name="color" id="input-color-text" value="#000000" aria-label="Color de fuente"/>
                 <span class="span-color-text">#000000"</span>
               </div>
             </div>
             <div class="cont-background-text">
               <label for="color">FONDO</label>
               <div class="cont-input-background-color">
-                <input
-                  type="color"
-                  name="background-text"
-                  id="input-background-text"
-                  value="#FFFFFF"
-                />
+                <input type="color" name="background-text" id="input-background-text" value="#FFFFFF" aria-label="Color de fondo de texto"/>
                 <span class="span-color-background-text">#FFFFFF"</span>
               </div>
             </div>
           </div>
           <label for="" class="label-checkbox"
-            ><input type="checkbox" class="input-checkbox" name="" id="fondo-transparente" />
+            ><input type="checkbox" class="input-checkbox" name="" id="fondo-transparente" aria-label="Aplicar fondo transparente"/>
             Fondo transparente</label
           >
 
-          <legend class="tittle-outline label">CONTORNO</legend>
+          <legend class="tittle-outline label" aria-label="Contorno de texto">CONTORNO</legend>
           <div class="cont-btns-outline">
-            <button class="btn-outline btn-outline-none">Ninguno</button>
-            <button class="btn-outline btn-outline-ligth">Claro</button>
-            <button class="btn-outline btn-outline-dark">Oscuro</button>
+            <button class="btn-outline btn-outline-none" aria-label="Sin contorno de texto">Ninguno</button>
+            <button class="btn-outline btn-outline-ligth" aria-label="Contorno de texto claro">Claro</button>
+            <button class="btn-outline btn-outline-dark" aria-label="Contorno de texto oscuro">Oscuro</button>
           </div>
 
           <label for="spacing label">ESPACIADO</label>
-          <input type="number" min="10" max="50" value="20" class="espaciado"/>
+          <input type="number" min="10" max="50" value="20" class="espaciado" aria-label="Espaciado de texto"/>
 
           <legend class="line-spacing label">INTERLINEADO</legend>
-          <select name="line-spacing" id="line-spacing">
+          <select name="line-spacing" id="line-spacing" aria-label="Interlineado de texto">
             <option value="0.8">0.8</option>
             <option value selected="1">1</option>
             <option value="1.2">1.2</option>
