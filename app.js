@@ -225,13 +225,11 @@ inputTextBottom.addEventListener("input", (event) => {
 inputSinTextoSuperior.addEventListener("click", () => {
 
   topText.classList.toggle("oculto");
-  contImg.classList.toggle("alturaimg")
 
 });
 
 inputSinTextoInferior.addEventListener("click", () => {
   bottomText.classList.toggle("oculto");
-  contImg.classList.toggle("alturaimg")
 });
 
 // ------> Seleccionar tipo de fuente
