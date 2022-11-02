@@ -225,11 +225,13 @@ inputTextBottom.addEventListener("input", (event) => {
 inputSinTextoSuperior.addEventListener("click", () => {
 
   topText.classList.toggle("oculto");
+  contImg.classList.toggle("alturaimg")
 
 });
 
 inputSinTextoInferior.addEventListener("click", () => {
   bottomText.classList.toggle("oculto");
+  contImg.classList.toggle("alturaimg")
 });
 
 // ------> Seleccionar tipo de fuente
@@ -291,9 +293,13 @@ alinearTextoDerecha.addEventListener('click', (event)=>{
 
 // ------> Fondo de texto transparente
 
-fondoTransparente.addEventListener('click', (event)=>{
+fondoTransparente.addEventListener('click', ()=>{
 
-contMeme.classList.toggle("fondoTransparente");
+if (fondoTransparente.checked == true){
+  contMeme.style.backgroundColor = "transparent";
+} else{
+  contMeme.style.backgroundColor = colorFondoTextoMeme.value;
+}
 
 })
 
