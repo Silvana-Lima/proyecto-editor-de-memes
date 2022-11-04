@@ -159,7 +159,7 @@ filtrosfondoImg.addEventListener('change', (event)=>{
   let ajustarFondo = event.target.value;
   console.log(ajustarFondo)
 if (ajustarFondo === 'ninguno'){
-  contImg.style.backgroundBlendMode = 'unset'
+  contImg.style.backgroundBlendMode = 'normal'
 } else if (ajustarFondo === 'aclarar'){
   contImg.style.backgroundBlendMode = 'lighten'
 } else if (ajustarFondo === 'oscurecer'){
@@ -237,26 +237,34 @@ inputSinTextoInferior.addEventListener("click", () => {
 opcionesFuente.addEventListener('change', (event)=>{
   let fuenteSeleccionada = event.target.value;
 
-    if(fuenteSeleccionada === 'arial'){
-    contMeme.style.fontFamily = 'Arial';
-  } else if (fuenteSeleccionada === 'roboto-mono'){
-    contMeme.style.fontFamily = 'Roboto Mono';
-    contMeme.style.fontWeight = 'bold';
-  } else if(fuenteSeleccionada === 'dancing-script'){
-    contMeme.style.fontFamily = 'Dancing Script';
-  } else if(fuenteSeleccionada === 'caveat'){
-    contMeme.style.fontFamily = 'Caveat';
-  } else if(fuenteSeleccionada === 'pacifico'){
-    contMeme.style.fontFamily = 'Pacifico';
-  } else if(fuenteSeleccionada === 'helvetica'){
-    contMeme.style.fontFamily = 'Helvetica';
-  } else if(fuenteSeleccionada === 'impact'){
-    contMeme.style.fontFamily = 'Impact';
-  } else if(fuenteSeleccionada === 'verdana'){
-    contMeme.style.fontFamily = 'Verdana';
-  } else if(fuenteSeleccionada === 'times-new-roman'){
-    contMeme.style.fontFamily = 'Times New Roman';
-  }
+  switch(fuenteSeleccionada){
+      case 'arial':
+      contMeme.style.fontFamily = 'Arial';
+      break;
+      case 'roboto-mono':
+      contMeme.style.fontFamily = 'Roboto Mono';
+      break;
+      case 'dancing-script':
+      contMeme.style.fontFamily = 'Dancing Script';
+      break;
+      case 'caveat':
+      contMeme.style.fontFamily = 'Caveat';
+      break;
+      case 'pacifico':
+      contMeme.style.fontFamily = 'Pacifico';
+      break;
+      case 'helvetica':
+      contMeme.style.fontFamily = 'Helvetica';
+      break;
+      case 'impact':
+      contMeme.style.fontFamily = 'Impact';
+      break;
+      case 'verdana':
+      contMeme.style.fontFamily = 'Verdana';
+      break;
+      case 'times-new-roman':
+      contMeme.style.fontFamily = 'Times New Roman';
+      }
 });
 
 // ------> Seleccionar tamaño de fuente
