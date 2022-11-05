@@ -59,7 +59,7 @@ let interlineado = $('#line-spacing');
 
 // ------> FUNCIONES
 
-let ingresarFiltros = (event) => {
+let ingresarFiltros = () => {
   let brillo = inputBrillo.value;
   let opacidad = inputOpacidad.value;
   let contraste = inputContraste.value;
@@ -74,7 +74,7 @@ let ingresarFiltros = (event) => {
 };
 
 let restablecerFiltros = (event) => {
-  console.log(event);
+
   event.preventDefault();
 
   inputBrillo.value = 1;
@@ -157,7 +157,6 @@ colorTextoMeme.addEventListener('input', cambiarColor)
 
 filtrosfondoImg.addEventListener('change', (event)=>{
   let ajustarFondo = event.target.value;
-  console.log(ajustarFondo)
 
 switch(ajustarFondo){
   case 'ninguno':
@@ -252,7 +251,6 @@ opcionesFuente.addEventListener('change', (event)=>{
 
 tamanioDeFuente.addEventListener('input', (event)=>{
   let tamanioElegido = event.target.value;
-  console.log(tamanioElegido)
 
   contMeme.style.fontSize = `${tamanioElegido}px`;
 })
@@ -282,7 +280,7 @@ alinearTextoDerecha.addEventListener('click', (event)=>{
 
 fondoTransparente.addEventListener('click', ()=>{
 
-if (fondoTransparente.checked == true){
+if (fondoTransparente.checked){
   contMeme.style.backgroundColor = "transparent";
 } else{
   contMeme.style.backgroundColor = colorFondoTextoMeme.value;
@@ -319,7 +317,7 @@ contornoOscuro.addEventListener('click',  (event)=>{
 // ------> Espaciado Texto
 
 espaciado.addEventListener('input', (event)=>{
-  let espaciadoElegido = Number(event.target.value);
+  let espaciadoElegido = event.target.value;
 
   topText.style.padding = `${espaciadoElegido}px`;
   bottomText.style.padding = `${espaciadoElegido}px`;
