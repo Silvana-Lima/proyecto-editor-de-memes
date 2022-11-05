@@ -158,19 +158,26 @@ colorTextoMeme.addEventListener('input', cambiarColor)
 filtrosfondoImg.addEventListener('change', (event)=>{
   let ajustarFondo = event.target.value;
   console.log(ajustarFondo)
-if (ajustarFondo === 'ninguno'){
-  contImg.style.backgroundBlendMode = 'normal'
-} else if (ajustarFondo === 'aclarar'){
-  contImg.style.backgroundBlendMode = 'lighten'
-} else if (ajustarFondo === 'oscurecer'){
-  contImg.style.backgroundBlendMode = 'darken'
-} else if (ajustarFondo === 'diferencia'){
-  contImg.style.backgroundBlendMode = 'difference'
-} else if (ajustarFondo === 'luminosidad'){
-  contImg.style.backgroundBlendMode = 'luminosity'
-} else if (ajustarFondo === 'multiplicar'){
-  contImg.style.backgroundBlendMode = 'multiply'
-}
+
+switch(ajustarFondo){
+  case 'ninguno':
+  contImg.style.backgroundBlendMode = 'normal';
+  break;
+  case 'aclarar':
+    contImg.style.backgroundBlendMode = 'lighten';
+  break;
+  case 'oscurecer':
+    contImg.style.backgroundBlendMode = 'darken';
+  break;
+  case 'diferencia':
+    contImg.style.backgroundBlendMode = 'difference';
+  break;
+  case 'luminosidad':
+    contImg.style.backgroundBlendMode = 'luminosity';
+  break;
+  case 'multiplicar':
+    contImg.style.backgroundBlendMode = 'multiply';
+  }
 
 })
 
@@ -237,40 +244,14 @@ inputSinTextoInferior.addEventListener("click", () => {
 opcionesFuente.addEventListener('change', (event)=>{
   let fuenteSeleccionada = event.target.value;
 
-  switch(fuenteSeleccionada){
-      case 'arial':
-      contMeme.style.fontFamily = 'Arial';
-      break;
-      case 'roboto-mono':
-      contMeme.style.fontFamily = 'Roboto Mono';
-      break;
-      case 'dancing-script':
-      contMeme.style.fontFamily = 'Dancing Script';
-      break;
-      case 'caveat':
-      contMeme.style.fontFamily = 'Caveat';
-      break;
-      case 'pacifico':
-      contMeme.style.fontFamily = 'Pacifico';
-      break;
-      case 'helvetica':
-      contMeme.style.fontFamily = 'Helvetica';
-      break;
-      case 'impact':
-      contMeme.style.fontFamily = 'Impact';
-      break;
-      case 'verdana':
-      contMeme.style.fontFamily = 'Verdana';
-      break;
-      case 'times-new-roman':
-      contMeme.style.fontFamily = 'Times New Roman';
-      }
+  contMeme.style.fontFamily = fuenteSeleccionada;
+
 });
 
 // ------> Seleccionar tamaño de fuente
 
 tamanioDeFuente.addEventListener('input', (event)=>{
-  let tamanioElegido = Number(event.target.value);
+  let tamanioElegido = event.target.value;
   console.log(tamanioElegido)
 
   contMeme.style.fontSize = `${tamanioElegido}px`;
@@ -348,34 +329,11 @@ espaciado.addEventListener('input', (event)=>{
 
 
 interlineado.addEventListener('change', (event)=>{
-  let interlineadoElegido = event.target.value;
-  console.log(interlineadoElegido)
+  let interlineadoElegido =event.target.value;
 
-    if(interlineadoElegido === '0.8'){
-    topText.style.lineHeight = '0.8';
-    bottomText.style.lineHeight = '0.8';
+  topText.style.lineHeight = interlineadoElegido;
+  bottomText.style.lineHeight = interlineadoElegido;
 
-  } else if (interlineadoElegido === '1'){
-    topText.style.lineHeight= '1';
-    bottomText.style.lineHeight = '1';
-  
-  } else if (interlineadoElegido === '1.2'){
-    topText.style.lineHeight= '1.2';
-    bottomText.style.lineHeight = '1.2';
-  
-  } else if (interlineadoElegido === '1.5'){
-    topText.style.lineHeight= '1.5';
-    bottomText.style.lineHeight = '1.5';
-  
-  } else if (interlineadoElegido === '2'){
-    topText.style.lineHeight= '2';
-    bottomText.style.lineHeight = '2';
-  
-  } else if (interlineadoElegido === '2.5'){
-    topText.style.lineHeight= '2.5';
-    bottomText.style.lineHeight = '2.5';
-  
-  } 
 })
 
   // ------> Descargar meme
