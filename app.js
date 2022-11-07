@@ -213,14 +213,12 @@ btnCloseModalText.addEventListener("click", () => {
 // ------> Agregar texto en meme
 
 inputTextTop.addEventListener("input", (event) => {
-  event.preventDefault();
   let textInput = event.target.value;
 
   topText.innerText = textInput;
 });
 
 inputTextBottom.addEventListener("input", (event) => {
-  event.preventDefault();
   let textInput = event.target.value;
 
   bottomText.innerText = textInput;

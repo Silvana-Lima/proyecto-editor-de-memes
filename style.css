@@ -161,7 +161,7 @@ form * {
   }
   
 input,
-select, textarea {
+select, textarea, .btn-reset-img {
   border: 0;
   background-color: var(--colorBotonHover);
   outline: none;
