@@ -73,9 +73,7 @@ let ingresarFiltros = () => {
   contImg.style.filter = `brightness(${brillo}) opacity(${opacidad}) contrast(${contraste}%) blur(${desenfoque}px) grayscale(${escalaDeGrises}%) sepia(${sepia}%) hue-rotate(${hue}deg) saturate(${saturado}%) invert(${negativo}%)`;
 };
 
-let restablecerFiltros = (event) => {
-
-  event.preventDefault();
+let restablecerFiltros = () => {
 
   inputBrillo.value = 1;
   inputOpacidad.value = 1;
@@ -256,19 +254,19 @@ tamanioDeFuente.addEventListener('input', (event)=>{
 // ------> Alinear texto
 
 alinearTextoIzquierda.addEventListener('click', (event)=>{
-  event.preventDefault();
+
   topText.style.textAlign = 'left';
   bottomText.style.textAlign = 'left';
 })
 
 alinearTextoCentro.addEventListener('click', (event)=>{
-  event.preventDefault();
+
   topText.style.textAlign = 'center';
   bottomText.style.textAlign = 'center';
 })
 
 alinearTextoDerecha.addEventListener('click', (event)=>{
-  event.preventDefault();
+
   topText.style.textAlign = 'right';
   bottomText.style.textAlign = 'right';
 })
@@ -291,14 +289,14 @@ if (fondoTransparente.checked){
 
 
 contornoClaro.addEventListener('click', (event)=>{
- event.preventDefault();
+
  contMeme.classList.add("contornoClaroTexto");
  contMeme.classList.remove("contornoOscuroTexto");
 
 })
 
 contornoOscuro.addEventListener('click',  (event)=>{
-  event.preventDefault();
+
   contMeme.classList.add("contornoOscuroTexto");
   contMeme.classList.remove("contornoClaroTexto");
  
@@ -306,7 +304,7 @@ contornoOscuro.addEventListener('click',  (event)=>{
 
 
  sinContorno.addEventListener('click', (event)=>{
-  event.preventDefault();
+
   contMeme.classList.remove("contornoOscuroTexto");
   contMeme.classList.remove("contornoClaroTexto");
  
