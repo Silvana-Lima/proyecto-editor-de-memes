@@ -12,6 +12,8 @@
   --colorHeaderDarkMode: #171010;
   --colorPanelDarkMode: #2b2b2b;
   --border-radius: 0.3em;
+  --colorBarraRangoDarkMode: #848383;
+  --colorHover:  #eeecec;
 }
 
 body {
@@ -49,7 +51,7 @@ ul {
 
 .btn-header:hover,
 .btn-download:hover {
-  background-color: var(--colorBotonHover);
+  background-color: var(--colorHover);
   border-radius: var(--border-radius);
   color: var(--colorHeaderDarkMode);
 }
@@ -117,7 +119,7 @@ ul {
 .btn-close-img,
 .btn-close-text {
   margin: 1em;
-  background-color: var(--colorBotonHover);
+  background-color: var(--colorContainerMeme);
   font-size: 1em;
   font-weight: bold;
   width: 1em;
@@ -163,7 +165,7 @@ form * {
 input,
 select, textarea, .btn-reset-img {
   border: 0;
-  background-color: var(--colorBotonHover);
+  background-color: var(--colorContainerMeme);
   outline: none;
   border-radius: var(--border-radius);
   height: 2.5em;
@@ -181,8 +183,8 @@ input:hover,
 select:hover,
 .btn-aling:hover,
 .btn-outline:hover,
-.btn-close:hover, textarea:hover, .btn-close-img:hover,.btn-close-text:hover {
-  background: var(--colorContainerMeme);
+.btn-close:hover, textarea:hover, .btn-close-img:hover,.btn-close-text:hover, .btn-reset-img:hover{
+  background: var(--colorHover);
 }
 
 .cont-background{
@@ -194,7 +196,7 @@ select:hover,
   align-items: center;
   justify-content: center;
   width: 60%;
-  background-color: var(--colorBotonHover);
+  background-color: var(--colorContainerMeme);
   border-radius: var(--border-radius);
   margin-right: 5px;
 }
@@ -212,14 +214,41 @@ input[type="color"] {
     padding: 0;
   }
   input[type="color"]::-webkit-color-swatch {
-    border: none;
+    border: 1.5px solid black;
     border-radius: 50%;
   }
 
- /* fin de cambio de formato de input color a redondeado */
+ /* cambio de estilos de input range */
+
+  /*(anulo estilos por defecto navegadores webkit)*/
+  input[type='range'],
+  input[type='range']::-webkit-slider-runnable-track,
+  input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  }
+
+ /*(doy estilo a la barra de desplazamiento)*/
+ input[type=range]{
+  height: 8px;
+  width: 100%;
+  background-color: var(--colorContainerMeme);
+  border-radius: 50px;
+  margin: 1em 0;
+  }
+  
+  /*(doy estilo a control de la barra de desplazamiento)*/
+  input[type=range]::-webkit-slider-thumb {
+    background-color: var(--colorBarraRangoDarkMode);
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid white;
+    border-radius: 50%;
+  } 
+  
+  /* fin de cambio de estilos de input range */
 
 #adjust {
-  background-color: var(--colorBotonHover);
+  background-color: var(--colorContainerMeme);
   border: none;
   border-radius: var(--border-radius);
 }
@@ -274,7 +303,7 @@ input[type="color"] {
   height: 2.3em;
   border: 0;
   border-radius: var(--border-radius);
-  background-color: var(--colorBotonHover);
+  background-color: var(--colorContainerMeme);
 }
 
 .cont-background-text{
@@ -294,7 +323,7 @@ input[type="color"] {
 .cont-input-color, .cont-input-background-color{
     display: flex;
     align-items: center;
-    background-color: var(--colorBotonHover);
+    background-color: var(--colorContainerMeme);
     border-radius: var(--border-radius);
     width: 100%;
     padding: 6px;

@@ -94,8 +94,11 @@ let cambiarColor = ()=>{
   let colorDeTextoMeme = colorTextoMeme.value;
   
   contImg.style.backgroundColor = fondoMeme;
+  spanColorImg.innerText = fondoMeme;
   contMeme.style.backgroundColor = fondoTextoMeme;
+  spanColorBackText.innerText = fondoTextoMeme;
   contMeme.style.color = colorDeTextoMeme;
+  spanColorText.innerText = colorDeTextoMeme;
   }
 
 let descargarMeme = ()=>{
@@ -122,6 +125,17 @@ btnTheme.addEventListener("click", () => {
   spanColorImg.classList.toggle("darkModeSpan");
   spanColorText.classList.toggle("darkModeSpan");
   spanColorBackText.classList.toggle("darkModeSpan");
+
+  if (btnTheme.innerText.includes("Oscuro")){
+    btnTheme.innerHTML = `<i class="fa-regular fa-lightbulb"></i> Modo Claro`
+    colorFondoMeme.value = 'var(--colorHeaderDarkMode)';
+    spanColorImg.innerText = colorFondoMeme.value;
+  } else{
+    btnTheme.innerHTML = `<i class="fa-regular fa-lightbulb"></i> Modo Oscuro`
+    colorFondoMeme.value = "#98a8f8";
+    spanColorImg.innerText = colorFondoMeme.value;
+
+  }
 });
 
 // ------> Abrir modal imagen
@@ -156,25 +170,25 @@ colorTextoMeme.addEventListener('input', cambiarColor)
 filtrosfondoImg.addEventListener('change', (event)=>{
   let ajustarFondo = event.target.value;
 
-switch(ajustarFondo){
-  case 'ninguno':
-  contImg.style.backgroundBlendMode = 'normal';
-  break;
-  case 'aclarar':
-    contImg.style.backgroundBlendMode = 'lighten';
-  break;
-  case 'oscurecer':
-    contImg.style.backgroundBlendMode = 'darken';
-  break;
-  case 'diferencia':
-    contImg.style.backgroundBlendMode = 'difference';
-  break;
-  case 'luminosidad':
-    contImg.style.backgroundBlendMode = 'luminosity';
-  break;
-  case 'multiplicar':
-    contImg.style.backgroundBlendMode = 'multiply';
-  }
+switch (ajustarFondo) {
+  case "ninguno":
+    contImg.style.backgroundBlendMode = "normal";
+    break;
+  case "aclarar":
+    contImg.style.backgroundBlendMode = "lighten";
+    break;
+  case "oscurecer":
+    contImg.style.backgroundBlendMode = "darken";
+    break;
+  case "diferencia":
+    contImg.style.backgroundBlendMode = "difference";
+    break;
+  case "luminosidad":
+    contImg.style.backgroundBlendMode = "luminosity";
+    break;
+  case "multiplicar":
+    contImg.style.backgroundBlendMode = "multiply";
+}
 
 })
 
