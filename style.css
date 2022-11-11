@@ -313,6 +313,7 @@ input[type="color"] {
 
 .cont-color-text-background{
     display: flex;
+    justify-content: space-between;
 }
 
 .cont-color-text, .cont-background-text{
@@ -325,7 +326,7 @@ input[type="color"] {
     align-items: center;
     background-color: var(--colorContainerMeme);
     border-radius: var(--border-radius);
-    width: 100%;
+    width: 110px;
     padding: 6px;
 
 }
