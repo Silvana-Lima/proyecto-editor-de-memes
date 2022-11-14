@@ -131,6 +131,7 @@ ul {
   align-items: center;
   position: fixed;
   border: 0;
+  z-index: 10;
 }
 
 .title-modal {
