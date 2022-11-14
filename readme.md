@@ -11,7 +11,7 @@ Este proyecto cuenta con un `diseño responsivo`. Con los siguientes puntos de q
 
 - Tablet: Max-width:780px
 
-- Mobil: Max-width:480px
+- Movil: Max-width:480px
 
 También cuenta con propiedades para mejorar su `accesibilidad`, como los atributos area y tabindex. 
 
