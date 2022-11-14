@@ -17,6 +17,10 @@ También cuenta con propiedades para mejorar su `accesibilidad`, como los atribu
 
 Otro punto interesante, es que el usuario puede experimentar el proyecto eligiendo entre `modo oscuro o modo claro`, según su preferencia.
 
+## Condiciones
+
+La imagen utilizada debe ser de uso libre, sin derechos de autor.
+
 ## Link
 
 - [Enlace directo al Editor de Memes!!](https://silvana-lima.github.io/proyecto-editor-de-memes/)😊
